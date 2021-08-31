@@ -15,7 +15,7 @@
     链接：https://leetcode-cn.com/problems/lian-xu-zi-shu-zu-de-zui-da-he-lcof
     著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-class Solution {
+class 剑指Offer_42_连续子数组的最大和 {
     public static int maxSubArray(int[] nums) {
         int[] dp = new int[nums.length];
    
