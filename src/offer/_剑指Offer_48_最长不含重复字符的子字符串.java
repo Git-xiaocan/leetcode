@@ -19,26 +19,26 @@ import java.util.Arrays;
 链接：https://leetcode-cn.com/problems/zui-chang-bu-han-zhong-fu-zi-fu-de-zi-zi-fu-chuan-lcof
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class _剑指Offer_48_最长不含重复字符的子字符串 {
+public  class _剑指Offer_48_最长不含重复字符的子字符串 {
 
-  public static int lengthOfLongestSubstring(String s) {
+  public  int lengthOfLongestSubstring(String s) {
     int[] hashMap = new int[128];
     int res = 0;
     int start = 0;
     Arrays.fill(hashMap, -1);
-    int i = 0;
-    for (; i < s.length(); i++) {
-      char ch = s.charAt(i);
+    int end=0;
+    for (; end < s.length(); end++) {
+      char ch = s.charAt(end);
+      //如果当前字符的下标的值比start大 与当前在字符串重复的字符串在start与end之间
       if (hashMap[ch] >= start) {
-        res = Math.max(res, i - start);
-        start = hashMap[ch] + 1;
+        res = Math.max(res, end - start);
+        //将头指针start移动到与当前字符重复的下一个字符
+        start=hashMap[ch]+1;
       }
-      hashMap[ch] = i;
+      //记录当前字符的下标
+      hashMap[ch] = end;
     }
-    return Math.max(res, i - start);
-  }
-
-  public static void main(String[] args) {
-    System.out.println(lengthOfLongestSubstring("dvdf"));
+    //从start位置到字符串最后都没有发现重复的字符
+    return Math.max(res,end-start); 
   }
 }
