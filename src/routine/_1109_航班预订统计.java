@@ -32,7 +32,6 @@ bookings[i].length == 3
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class _1109_航班预订统计 {
-
   public int[] corpFlightBookings(int[][] bookings, int n) {
     int[] answer = new int[n];
     for (int[] arr : bookings) {
@@ -44,8 +43,6 @@ public class _1109_航班预订统计 {
     for(int i=1;i<answer.length;i++){
         answer[i]+=answer[i-1];
     }
-
-
     return answer;
   }
 }
