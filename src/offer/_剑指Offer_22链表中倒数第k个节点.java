@@ -1,4 +1,3 @@
-
 /**
  * 输入一个链表，输出该链表中倒数第k个节点。为了符合大多数人的习惯，本题从1开始计数，即链表的尾节点是倒数第1个节点。
 
@@ -15,7 +14,7 @@
  */
 public class _剑指Offer_22链表中倒数第k个节点 {
 
-  public  ListNode getKthFromEnd(ListNode head, int k) {
+  public ListNode getKthFromEnd(ListNode head, int k) {
     if (head == null) return null;
     ListNode h = reverse(head);
     ListNode curr = h;
@@ -26,26 +25,48 @@ public class _剑指Offer_22链表中倒数第k个节点 {
     return reverse(h);
   }
 
-  public  ListNode reverse(ListNode node) {
+  public ListNode reverse(ListNode node) {
     if (node.next == null) return node;
     ListNode currNode = reverse(node.next);
     node.next.next = node;
     node.next = null;
     return currNode;
   }
-  //解法二
-  public static   ListNode getKthFromEnd1(ListNode head, int k) {
-      ListNode p =head;
-      ListNode q = head;
-      for(int i=0;i<k;i++){
-          p=p.next;
-      }
-      while(p!=null){
-          p=p.next;
-          q=q.next;
-      }
-      return q;
 
+  //解法二
+  public static ListNode getKthFromEnd1(ListNode head, int k) {
+    ListNode p = head;
+    ListNode q = head;
+    for (int i = 0; i < k; i++) {
+      p = p.next;
+    }
+    while (p != null) {
+      p = p.next;
+      q = q.next;
+    }
+    return q;
+  }
+
+  //解法三
+  class Solution {
+
+    public ListNode getKthFromEnd(ListNode head, int k) {
+      ListNode reversed = reverse(head);
+      ListNode res = reversed;
+      for (int i = 1; i < k; i++) {
+        res = res.next;
+      }
+      reverse(reversed);
+      return res;
+    }
+
+    public ListNode reverse(ListNode node) {
+      if (node.next == null) return node;
+      ListNode last = reverse(node.next);
+      node.next.next = node;
+      node.next = null;
+      return last;
+    }
   }
 
   public static void main(String[] args) {
