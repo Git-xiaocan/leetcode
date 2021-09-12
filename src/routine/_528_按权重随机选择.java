@@ -31,10 +31,6 @@ class _528_按权重随机选择 {
                 left=mid+1;
             }
         }
-
-        
-        
-
         return left;
     }
     public static void main(String[] args) {
