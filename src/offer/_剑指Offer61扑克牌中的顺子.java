@@ -35,10 +35,8 @@ public class _剑指Offer61扑克牌中的顺子 {
         count++;
         continue;
       } else if (i + 1 < nums.length) {
-        if (
-          nums[i + 1] - nums[i] != 1 &&
-          (nums[i + 1] - nums[i] - 1 > count || nums[i] == nums[i + 1])
-        ) {
+        if (nums[i + 1] - nums[i] != 1 
+        &&(nums[i + 1] - nums[i] - 1 > count || nums[i] == nums[i + 1])) {
           return false;
         } else {
           count -= nums[i + 1] - nums[i] - 1;
