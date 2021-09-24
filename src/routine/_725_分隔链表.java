@@ -23,14 +23,10 @@
 输出：[[1,2,3,4],[5,6,7],[8,9,10]]
 解释：
 输入被分成了几个连续的部分，并且每部分的长度相差不超过 1 。前面部分的长度大于等于后面部分的长度。
- 
-
 提示：
-
 链表中节点的数目在范围 [0, 1000]
 0 <= Node.val <= 1000
 1 <= k <= 50
-
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/split-linked-list-in-parts
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
@@ -54,7 +50,6 @@ class Solution {
             len++;
             p=p.next;
         }
-    
       if(len<k){
             p = head;
             int i =0;
@@ -85,8 +80,6 @@ class Solution {
                 if(curr!=null)curr.next = null;
 
             }
-
-
         }
         return res;
 
